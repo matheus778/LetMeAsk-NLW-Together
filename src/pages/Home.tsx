@@ -1,3 +1,5 @@
+import { useHistory } from 'react-router-dom';
+
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
@@ -6,6 +8,12 @@ import '../styles/auth.scss';
 import { Button } from '../components/Button';
 
 export function Home() {
+  const history = useHistory();
+
+  function navigationToNewRoom(){
+    history.push('/rooms/new');
+  }
+
   return(
     <div id="page-auth">
       <aside>
@@ -26,7 +34,7 @@ export function Home() {
             <input type="text"
             placeholder="Digite o codigo da sala"
             />
-            <Button type="submit">
+            <Button onClick={navigationToNewRoom} type="submit">
               Entrar na sala
             </Button>
           </form>
